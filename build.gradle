@@ -1,0 +1,47 @@
+buildscript {
+	ext {
+		springBootVersion = '2.0.2.RELEASE'
+	}
+	repositories {
+		maven {
+			url "https://mirrors.huaweicloud.com/repository/maven/"
+		}
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group = 'com.xjtushilei'
+version = '0.0.1'
+sourceCompatibility = 1.8
+archivesBaseName="sign"
+repositories {
+	maven {
+		url "https://mirrors.huaweicloud.com/repository/maven/"
+	}
+}
+
+
+dependencies {
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
+	compile('org.springframework.boot:spring-boot-starter-web')
+	runtime('com.h2database:h2')
+	// okhttp3
+	compile group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.10.0'
+    // commons-codec
+    compile group: 'commons-codec', name: 'commons-codec', version: '1.11'
+    // fastjson
+    compile group: 'com.alibaba', name: 'fastjson', version: '1.2.47'
+
+    // https://mvnrepository.com/artifact/org.jsoup/jsoup
+    compile group: 'org.jsoup', name: 'jsoup', version: '1.11.3'
+
+
+
+}
